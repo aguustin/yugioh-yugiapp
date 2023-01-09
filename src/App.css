@@ -1,0 +1,13 @@
+.App{
+    overflow-x: hidden;
+}
+
+*::-webkit-scrollbar{
+    background-color: transparent;
+    width: 4px;
+}
+
+*::-webkit-scrollbar-thumb{
+    background-color: rgb(89, 97, 202);
+    
+}

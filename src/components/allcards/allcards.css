@@ -1,0 +1,104 @@
+.allcards{
+    background-color: rgb(4, 3, 44);
+    height: 87vh;
+    overflow-y: scroll;
+    color: white;
+    text-align: center;
+}
+
+.allcards img{
+    width: 300px;
+    cursor: pointer;
+}
+
+.cards-container{
+    display: inline-flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.cards{
+    margin: 0px auto;
+    text-align: center;
+}
+
+.cards img{
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+}
+
+.cards li{
+    list-style: none;
+    text-align: left;
+}
+
+.pages{
+    z-index: 0;
+    display: inline-flex;
+    width: 33.3%;
+    text-align: center;
+}
+
+.pages button{
+    background: none;
+    border-style: none;
+    color: white;
+    font-weight: 600;
+    margin: 0px auto;
+    cursor: pointer;
+}
+
+.loader{
+    color: black;
+}
+
+
+.hide, .show{
+    position: absolute;
+    width: 400px;
+    background-color: rgb(3, 2, 37);
+}
+
+.hide{
+    transform: translate(-25rem, 0rem);
+    transition: all 1s;
+}
+
+.show button{
+    background: none;
+    color: white;
+    position: absolute;
+    right: 1rem;
+    top:0.5rem;
+}
+
+.cardDetail{
+    overflow-y: auto;
+    height: 87vh;
+    list-style: none;
+    position: absolute;
+    margin-left: 0rem;
+    width: 400px;
+    background-color: rgb(4, 3, 44);
+    z-index: 2;
+}
+
+.cardDetailContainer{
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+
+.cardDetail img{
+    margin-top: 40px;
+}
+.cardDetail button{
+    background: none;
+    border-style: none;
+    color: white;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+}

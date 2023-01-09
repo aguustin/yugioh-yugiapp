@@ -1,0 +1,80 @@
+
+@keyframes cards {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.sucess, .error{
+  padding: 5px 0px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+.sucess{
+  background-color: rgb(236, 114, 114);
+}
+
+.error{
+  background-color: orangered;
+}
+
+.card-deleted{
+  position: absolute;
+  background-color: orangered;
+  opacity: 0;
+  color: white;
+  animation: cards 3s ease-in-out;
+  right: 3rem;
+  top: 7rem;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+}
+
+.card-deleted p{
+  margin: 15px;
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid rgb(4, 3, 44);; /* Light grey */
+    border-top: 10px solid #ffffff; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.2s linear infinite;
+    margin: 0px auto;
+    margin-top: 17rem;
+  }
+
+@keyframes card {
+  0%{
+    transform: rotate(0deg);
+  }
+  
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.loading-img img{
+  width: 300px;
+  height: 350px;
+  animation: card 2s infinite;
+  margin: 0px auto;
+}

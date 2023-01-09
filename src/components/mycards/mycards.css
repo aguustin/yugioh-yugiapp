@@ -1,0 +1,59 @@
+.mycards, .mycards-spinner {
+    background-color: rgb(4, 3, 44);
+    height: 87vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.mycards img{
+    width: 200px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+}
+
+.mycards-spinner{
+    text-align: center;
+    color: white;
+}
+
+.forcard img:hover{
+    width: 210px;
+    transition: all 0.5s;
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+.mycards-container{
+    margin: 0px auto;
+    display: inline-flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.forcard{
+    text-align: center;
+    margin: 0px auto;
+    max-width: 200px;
+    color: white;
+    max-height: 360px;
+}
+
+.forcard:hover > #deleteCard{
+   color:white;
+   transition: color 0.8s;
+   cursor: pointer;
+   z-index: 1;
+}
+
+#deleteCard{
+    position: absolute;
+    background: none;
+    top:2rem;
+    left:5.5rem;
+    position: relative;
+    color: white;
+    color:transparent;
+    border: none;
+    font-size: 15px;
+}

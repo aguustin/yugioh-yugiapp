@@ -1,0 +1,76 @@
+
+@font-face {
+    font-family: zendots;
+    src: url('../../fonts/ZenDots-Regular.ttf');
+}
+
+.Navbar{
+    width: 100%;
+    background: rgb(68,5,5);
+    background: linear-gradient(90deg, rgba(68,5,5,1) 0%, rgba(0,0,0,1) 100%);
+    padding: 4px;
+}
+
+.Navbar li{
+    display: inline-flex;
+    list-style: none;
+    font-family: zendots;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.Navbar li p{
+    font-size: 18px;
+    color: yellow;
+}
+
+.Navbar button {
+    position: absolute;
+    border: none;
+    font-family: zendots;
+    background: none;
+    color: yellow;
+    right: 5rem;
+    top: 2.6rem;
+    cursor: pointer;
+}
+
+#S{
+    position: absolute;
+    right: 4rem;
+}
+
+
+@media screen and (max-width:850px){
+    .Navbar li{
+        font-size: 12px;
+        margin-left: 20px;
+    }
+
+}
+
+@media screen and (max-width: 735px) {
+    .Navbar{
+        text-align: center;
+    }
+
+    #signOut{
+        position: absolute;
+        top: 1rem;
+        left: 0rem;
+        right: 34rem;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    #S{
+        position: relative;
+        right: 0rem;
+    }
+}
+
+@media screen and (max-width:460px){
+    .Navbar li p{
+        font-size: 14px;
+    }
+}

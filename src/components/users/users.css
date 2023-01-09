@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+.b-color{
+    background-color: rgb(4, 3, 44);
+    height: 87vh;
+}
+
+.form-size{
+    width: 400px;
+    margin: auto;
+}
+
+.form{
+    padding: 3em 3em;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.91);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.91);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.91);
+    text-align: center;
+}
+
+.form-title{
+    color: white;
+}
+
+.form-container{
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+}
+
+.form-group{
+    position: relative;
+    --color: #5757577e;
+}
+
+.form-input{
+    width: 100%;
+    background: none;
+    color: white;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label{
+    transform: translateY(-18px) scale(.9);
+    transform-origin: left top;
+    color: rgb(236, 114, 114);
+}
+
+
+.form-label{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.form-button{
+    background-color: rgb(236, 114, 114);
+    color: white;
+    padding: 1em 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form-button:hover{
+    color: black;
+    background-color: rgb(226, 70, 70);
+    transition: all .5s;
+}
+
+.setView-button{
+    color: white;
+    background: none;
+    border-style: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 18px;
+}
