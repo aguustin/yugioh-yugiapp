@@ -91,7 +91,7 @@ const ObtainCards = (props) => {
         } else {
             return (
                 <div className='obtainCards-container'>
-                    <h2>you can get up to 10 cards a day!</h2>
+                    <h2>you can get up to 10 cards a day!</h2><br></br><br></br>
                     <div>
                         <img src={card} alt=""></img>
                     </div>
