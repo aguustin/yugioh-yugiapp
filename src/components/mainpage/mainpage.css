@@ -30,6 +30,10 @@
     top:2rem;
 }
 
+.description-mainpage img{
+    width: 500px;
+}
+
 .description-mainpage h1{
     font: squealer;
 }

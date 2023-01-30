@@ -14,7 +14,6 @@ const Users = (props) => {
     const [error, setError] = useState(false);
     const [succes, setSucess] = useState(false);
     const [view, setView] = useState(false);
-    //const { setUserInfo } = useContext(UserContext);
 
     const AuthHandler = async (e) => {
 
@@ -57,7 +56,7 @@ const Users = (props) => {
             .then(() => {
                 signInWithEmailAndPassword(auth, email, pass)
                     .then((userCredentials) => {
-                        
+
                         props.setUserData(userCredentials);
                         console.log(email);
                     })
@@ -67,23 +66,6 @@ const Users = (props) => {
                         console.log(errorCode);
                     });
             })
-
-
-        /*signInWithEmailAndPassword(auth, email, pass)
-         .then((userCredentials) => {
-
-           setUserInfo(userCredentials);
-
-           return userCredentials;
-
-         }).catch((error) =>{
-
-           const errorCode = error.code;
-
-           console.log(errorCode);
-           
-         })*/
-
     }
 
     const Login = () => {

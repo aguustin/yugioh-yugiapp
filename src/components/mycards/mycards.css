@@ -1,5 +1,6 @@
 .mycards, .mycards-spinner {
-    background-color: rgb(4, 3, 44);
+    background: rgb(1,0,51);
+    background: linear-gradient(90deg, rgba(1,0,51,1) 0%, rgba(14,34,135,1) 50%, rgba(1,0,51,1) 100%, rgba(8,22,92,1) 121%);
     height: 87vh;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -57,3 +58,31 @@
     border: none;
     font-size: 15px;
 }
+
+@keyframes cards {
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+
+.card-deleted{
+    background-color: orangered;
+    opacity: 0;
+    color: white;
+    animation: cards 2s ease-in-out;
+    right: 3rem;
+    top: 7rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.9);
+  }
+  
+  .card-deleted p{
+    margin: 15px;
+  }

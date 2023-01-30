@@ -1,5 +1,5 @@
 import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
-import {  useState } from 'react';
+import { useState } from 'react';
 import { firestoreDB } from '../../service/firebase';
 import { DeletedCard } from '../loader/loader';
 import { CardSpinner } from '../loader/loader';
@@ -11,7 +11,8 @@ const Mycards = (props) => {
     const [cardsObtained, setCardsObtained] = useState([]);
     const [deletCard, setDeletedCard] = useState(false);
 
-    const userrCards = async () => {
+
+    const userCards = async () => {
         if (props.userData.uid !== null) {
             const userCards = await query(collection(firestoreDB, 'cards'), where('uid', '==', props.userData.uid));
             await getDocs(userCards)
@@ -22,23 +23,21 @@ const Mycards = (props) => {
                     setCardsObtained(cards);
                 })
         } else {
-            console.log("no hay user");
+            console.log("please log in");
         }
     }
 
-    userrCards();
+    userCards();
 
     const deleteCard = async (props) => {
 
-        setDeletedCard(!deletCard);
+        setTimeout(() => {
+            setDeletedCard(false);
+        }, 2000)
 
         const idCard = props;
-
         await deleteDoc(doc(firestoreDB, 'cards', idCard));
-
-        // userrCards();
-
-        window.location.reload()
+        userCards();
 
     }
 
@@ -47,21 +46,21 @@ const Mycards = (props) => {
 
         return (
             <div className='mycards-spinner'>
-                <h1>You dont have any cart in you maze</h1>
+                <h1>you have no cards in your deck</h1>
                 <CardSpinner />
             </div>
         )
 
     } else {
 
-        if (props.userData.uid !== null) {
+        if (props.userData.uid !== null) { //props.userData.uid
 
             return (
 
                 <div className='mycards'>
                     <div className='mycards-container'>
                         {cardsObtained.map(c => <div key={c.id} className='forcard'>
-                            <button id="deleteCard" onClick={() => deleteCard(c.id)}>X</button>
+                            <button id="deleteCard" onClick={() => deleteCard(c.id, setDeletedCard(true))}>X</button>
                             <img src={c.image} alt=""></img>
                             <p>{c.name}</p>
                         </div>)}
@@ -73,7 +72,7 @@ const Mycards = (props) => {
         } else {
             return (
                 <div className='mycards-spinner'>
-                    <h1>Please register an account or enter if you have one</h1>
+                    <h1>please register or log in if you already have an account</h1>
                     <CardSpinner />
                 </div>
             )

@@ -1,5 +1,6 @@
 .obtainCards{
-    background-color: rgb(4, 3, 44);
+    background: rgb(1,0,51);
+    background: linear-gradient(90deg, rgba(1,0,51,1) 0%, rgba(14,34,135,1) 50%, rgba(1,0,51,1) 100%, rgba(8,22,92,1) 121%);
     margin: 0px auto;
     color: white;
     padding: 0px auto;

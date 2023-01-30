@@ -1,8 +1,7 @@
 
 import './obtainCards.css';
 import card from '../../imgs/card.png';
-import UserContext from '../../usercontext/usercontext';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { addDoc, collection, getDocs, where, query, doc, updateDoc } from 'firebase/firestore';
 import { firestoreDB } from '../../service/firebase';
 import LoadingSpinner from '../loader/loader';
@@ -10,7 +9,6 @@ import { Link } from 'react-router-dom';
 
 const ObtainCards = (props) => {
 
-    //const { userInfo } = useContext(UserContext);
     const [cards, setCards] = useState([]);
     const [show, setShow] = useState(true);
     const [obtains, setObtains] = useState();
@@ -19,7 +17,7 @@ const ObtainCards = (props) => {
 
 
     useEffect(() => {
-        
+
         let level = Math.floor(Math.random() * (max - min) + min);
 
         fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?level=${level}`)
@@ -28,23 +26,20 @@ const ObtainCards = (props) => {
                 const e = data.data;
                 setCards(e);
             })
-            const userMail = query(collection(firestoreDB, 'users'), where('email', '==', props.userData.uid));
-            getDocs(userMail)
+        const userMail = query(collection(firestoreDB, 'users'), where('email', '==', props.userData.email));
+        getDocs(userMail)
             .then(res => {
-                 const obtains = res.docs.map(doc => {
-                    return {id: doc.id, ...doc.data()}
+                const obtains = res.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
                 })
                 setObtains(obtains);
             })
-            
-        
-    }, [props.userData.uid])
+        }, [props.userData.email])
+
 
     const BackToObtain = () => {
 
-        //const y = obtains[0].obtains - 1;
-
-        //console.log("ee", y);
+        const y = obtains[0].obtains - 1;
 
         const uid = props.userData.uid;
 
@@ -66,11 +61,11 @@ const ObtainCards = (props) => {
             image: image
         });
 
-        /*const decremetRef = doc(firestoreDB, "users", "ngaQFYSgpKSGkp2n9h1BoSfDA363");
+        const decremetRef = doc(firestoreDB, "users", "ngaQFYSgpKSGkp2n9h1BoSfDA363");
 
         updateDoc(decremetRef, {
             obtains: y
-        });*/
+        });
 
         return (
             <div className='obtainCards-container'>
@@ -79,43 +74,45 @@ const ObtainCards = (props) => {
                     <img src={image} alt=""></img>
                     <p>{c.desc}</p>
                 </div>)}
-                <Link to='/ObtainCards'><button onClick={() => setShow(!show)}>Great!</button></Link>
+                <Link to="/Mycards"><button>Great!</button></Link>
             </div>
         )
 
     }
 
     const Obtain = () => {
-        console.log(obtains);
         if (props.userData.uid === null) {
+
             return (
                 <div className='obtainCards-container-out'>
-                    <h2>Please make a account or enter if you have one to obtain carts!!</h2>
+                    <h2>please create an account or log in to get cards</h2>
                 </div>
             )
         } else {
             return (
                 <div className='obtainCards-container'>
-                    <h2>En esta seccion puedes obtener una carta a la vez hasta 10 veces al dia!</h2>
+                    <h2>you can get up to 10 cards a day!</h2>
                     <div>
                         <img src={card} alt=""></img>
                     </div>
-                    <button onClick={() => setShow(!show)}>Obtener cartas</button>
+                    <button onClick={() => setShow(!show)}>get cards</button>
                 </div>
             )
         }
     }
-    
+
     if (cards.length === 0) {
         return (
-            <div>
-                <LoadingSpinner></LoadingSpinner>
+            <div className='obtainCards'>
+                <div className='obtainCards-container-out'>
+                    <LoadingSpinner></LoadingSpinner>
+                </div>
             </div>
         )
     } else {
         return (
             <div className='obtainCards'>
-                {show ? <Obtain/> : <BackToObtain />}
+                {show ? <Obtain /> : <BackToObtain />}
             </div>
         )
     }

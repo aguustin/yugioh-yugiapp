@@ -4,15 +4,15 @@ import "./loader.css";
 
 
 export const SignSuccesfully = () => {
-  return(
+  return (
     <div className="sucess">
-    <p>Account created succesfully!</p>
-  </div>
+      <p>Account created succesfully!</p>
+    </div>
   )
 }
 
 export const Error = () => {
-  return(
+  return (
     <div className="error">
       <p>Ocurrio un error!</p>
     </div>
@@ -21,29 +21,25 @@ export const Error = () => {
 
 
 export const DeletedCard = () => {
-  return(
-  <div className="card-deleted">
-    <p>Card deleted succesfully!</p>
-  </div>
+  return (
+    <div className="card-deleted">
+      <p>Card deleted succesfully!</p>
+    </div>
   )
 }
 
 export const CardSpinner = () => {
-  return(
-   
-      <div className="loading-img">
-        <img src={card} alt=""></img>
-      </div>
-   
+  return (
+    <div className="loading-img">
+      <img src={card} alt=""></img>
+    </div>
   )
 }
 
 const LoadingSpinner = () => {
   return (
-    
-      <div className="loading-spinner">
-      </div>
-   
+    <div className="loading-spinner">
+    </div>
   )
 }
 

@@ -5,7 +5,8 @@
 }
 
 .b-color{
-    background-color: rgb(4, 3, 44);
+    background: rgb(1,0,51);
+    background: linear-gradient(90deg, rgba(1,0,51,1) 0%, rgba(14,34,135,1) 50%, rgba(1,0,51,1) 100%, rgba(8,22,92,1) 121%);
     height: 87vh;
 }
 
@@ -17,9 +18,9 @@
 .form{
     padding: 3em 3em;
     border-radius: 10px;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.91);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.91);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.91);
+    box-shadow: 5px 10px 5px 4px rgba(0,0,0,0.91);
+    -webkit-box-shadow: 5px 10px 5px 4px rgba(0,0,0,0.91);
+    -moz-box-shadow: 5px 10px 5px 4px rgba(0,0,0,0.91);
     text-align: center;
 }
 
