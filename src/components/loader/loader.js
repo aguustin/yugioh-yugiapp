@@ -19,6 +19,23 @@ export const Error = () => {
   )
 }
 
+export const DiffPass = () => {
+  return(
+    <div className="error">
+      <p>The passwords aren not equals!</p>
+    </div>
+  )
+}
+
+export const PassLError = () => {
+  return(
+    <div className="error">
+      <p>The password needs at least 8 caracters!</p>
+    </div>
+  )
+}
+
+
 
 export const DeletedCard = () => {
   return (

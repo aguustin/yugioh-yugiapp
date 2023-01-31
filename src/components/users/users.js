@@ -1,6 +1,6 @@
 import './users.css';
 import { SignSuccesfully } from '../loader/loader';
-import { Error } from '../loader/loader';
+import { Error, DiffPass, PassLError} from '../loader/loader';
 import { useState } from 'react';
 import { setDoc, doc } from 'firebase/firestore';
 import { firestoreDB, app } from '../../service/firebase';
@@ -12,6 +12,8 @@ const auth = getAuth(app);
 const Users = (props) => {
 
     const [error, setError] = useState(false);
+    const [passLE, setPassLE] = useState(false);
+    const [diffPass, setDiffPass] = useState(false);
     const [succes, setSucess] = useState(false);
     const [view, setView] = useState(false);
 
@@ -35,14 +37,30 @@ const Users = (props) => {
             setDoc(docRef, { email: email, password: pass, obtains: obtains });
 
             setError(false);
+            setDiffPass(false);
+            setPassLE(false);
             setSucess(true);
 
-        } else {
+        } else if(pass.length < 8){
 
+            setPassLE(true);
+            setSucess(false);
+            setDiffPass(false);
+            setError(false);
+
+        }else if(pass !== rpass){
+
+            setDiffPass(true);
+            setSucess(false);
+            setPassLE(false);
+            setError(false);
+
+        }else{
             setError(true);
-
+            setDiffPass(false);
+            setSucess(false);
+            setPassLE(false);
         }
-
     }
 
     const loginHandler = async (e) => {
@@ -125,6 +143,8 @@ const Users = (props) => {
                     <button className='setView-button' onClick={() => setView(!view)}>You have a account? Login</button>
                     {error ? <Error></Error> : null}
                     {succes ? <SignSuccesfully /> : null}
+                    {diffPass ? <DiffPass/> : null}
+                    {passLE ? <PassLError/> : null}
                 </div>
             </div>
         )
